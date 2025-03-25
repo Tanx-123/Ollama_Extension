@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ollama Webpage Summarizer</title>
+  <style>
+    body {
+      width: 400px;
+      padding: 15px;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      margin: 0;
+      background: #ffffff;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+    button {
+      padding: 10px 16px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-bottom: 10px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    button:hover {
+      background-color: #3367d6;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    #summary {
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 12px;
+      max-height: 350px;
+      overflow-y: auto;
+      margin-top: 15px;
+      line-height: 1.6;
+      font-size: 14px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    }
+    #summary h3 {
+      margin-top: 15px;
+      margin-bottom: 10px;
+      color: #1a73e8;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    #summary p {
+      margin-bottom: 12px;
+      text-align: justify;
+    }
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      background: #f8f9fa;
+      padding: 12px;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .detail-level {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .detail-level select {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      background: white;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+    .detail-level select:focus {
+      outline: none;
+      border-color: #4285f4;
+      box-shadow: 0 0 0 2px rgba(66,133,244,0.2);
+    }
+    #downloadBtn, #clearBtn {
+      display: none;
+    }
+    #downloadBtn {
+      background-color: #34a853;
+    }
+    #clearBtn {
+      background-color: #ea4335;
+    }
+    .typing-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background-color: #333;
+      margin-left: 2px;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #666;
+    }
+    .loading::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      border: 2px solid #4285f4;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h2>Ollama Webpage Summarizer</h2>
+  <div class="controls">
+    <div class="detail-level">
+      <label for="detailLevel">Detail Level:</label>
+      <select id="detailLevel">
+        <option value="brief">Brief</option>
+        <option value="standard" selected>Standard</option>
+        <option value="detailed">Detailed</option>
+      </select>
+    </div>
+    <button id="summarizeBtn">Summarize This Page</button>
+  </div>
+  <div id="summary">
+    <p>Click the button to summarize the current webpage.</p>
+  </div>
+  <div style="text-align: right; margin-top: 10px;">
+    <button id="downloadBtn">Download Summary</button>
+  </div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
