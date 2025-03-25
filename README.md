@@ -1,4 +1,4 @@
-# Ollama Webpage Summarizer Chrome Extension
+# Ollama Webpage Summarizer Extension
 A Chrome extension that uses Ollama's LLM capabilities to generate concise summaries of web pages. The extension extracts the main content from any webpage and uses Ollama to create summaries with adjustable detail levels.
 
 ## Features
@@ -25,12 +25,7 @@ git clone <repository-url>
 cd ollama_extension
 ```
 
-2. Install Python dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-3. Start the FastAPI backend server:
+2. Start the FastAPI backend server:
 ```bash
 python app_fastapi.py
 ```
@@ -53,7 +48,6 @@ python app_fastapi.py
 
 ```
 ollama_extension/
-│
 ├── app_fastapi.py      # Backend FastAPI server
 ├── manifest.json       # Chrome extension manifest
 ├── background.js       # Extension background script
