@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   clearBtn.id = 'clearBtn';
   clearBtn.textContent = 'Clear Summary';
   clearBtn.style.display = 'none';
-  document.querySelector('div[style="text-align: right; margin-top: 10px;"]').appendChild(clearBtn);
+  document.querySelector('.button-container').appendChild(clearBtn);
   
   class SummaryManager {
     constructor() {
